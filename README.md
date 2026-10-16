@@ -12,7 +12,7 @@ A responsive compilation website presenting three separate student web activitie
 
 - `index.html` — compilation home page with navigation, hero, three featured activity cards, and an about section.
 - `portfolio.html`, `market.html`, `bloom.html` — the three completed activities.
-- `styles.css` — shared design system, page layouts, responsive breakpoints, and focus states.
+- `fieldnotes.css` — shared design system, page layouts, responsive breakpoints, and focus states. The versioned filename prevents an older cached stylesheet from masking the latest design.
 - `app.js` — marketplace demo cart and accessible Bloom app tabs/task states.
 - `GITHUB_LINK.txt` — link to the public project repository.
 
