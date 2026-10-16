@@ -2,4 +2,4 @@ GitHub repository:
 https://github.com/eijayy-113/SOMERA_TASKCOMPI
 
 Live website:
-https://eijayy-113.github.io/SOMERA_TASKCOMPI/
+https://eijayy-113.github.io/SOMERA_TASKCOMPI/index.html?cachecheck=3b9b551
