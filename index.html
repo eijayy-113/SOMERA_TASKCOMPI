@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f6f5f0">
+    <meta name="description" content="Somera is a simple, private-first expense tracker prototype.">
+    <title>Somera — spend with clarity</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Main navigation">
+        <a class="brand" href="#overview" aria-label="Somera home">
+          <span class="brand-mark" aria-hidden="true">s</span>
+          <span>somera<span class="brand-period">.</span></span>
+        </a>
+
+        <p class="nav-label">YOUR MONEY</p>
+        <nav class="primary-nav">
+          <a class="nav-link is-active" href="#overview" data-view="overview" aria-current="page">
+            <span class="nav-icon" aria-hidden="true">⌂</span> Overview
+          </a>
+          <a class="nav-link" href="#activity" data-view="activity">
+            <span class="nav-icon" aria-hidden="true">↕</span> Activity
+          </a>
+          <a class="nav-link" href="#add-expense" data-view="add-expense">
+            <span class="nav-icon" aria-hidden="true">＋</span> Add an expense
+          </a>
+          <a class="nav-link" href="#budgets" data-view="budgets">
+            <span class="nav-icon" aria-hidden="true">◷</span> Budgets
+          </a>
+          <a class="nav-link" href="#help" data-view="help">
+            <span class="nav-icon" aria-hidden="true">?</span> Help & privacy
+          </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <div class="privacy-chip"><span aria-hidden="true">●</span> Private by design</div>
+          <p>Your demo data stays in this browser.</p>
+        </div>
+      </aside>
+
+      <main id="main-content" class="main-content">
+        <header class="topbar">
+          <div class="mobile-brand" aria-label="Somera">somera<span class="brand-period">.</span></div>
+          <p class="topbar-note"><span class="status-dot" aria-hidden="true"></span> Your finances, in focus</p>
+          <button class="avatar" type="button" aria-label="Demo profile">S</button>
+        </header>
+
+        <div class="content-wrap">
+          <section class="view is-visible" id="view-overview" data-page="overview" aria-labelledby="overview-title">
+            <div class="page-heading">
+              <div>
+                <p class="eyebrow" id="today-label">YOUR MONEY AT A GLANCE</p>
+                <h1 id="overview-title" tabindex="-1">A little more clarity.</h1>
+                <p class="page-intro">A calmer view of where your money goes.</p>
+              </div>
+              <a class="button button-primary" href="#add-expense" data-view="add-expense"><span aria-hidden="true">＋</span> Add expense</a>
+            </div>
+
+            <div class="summary-grid" aria-label="This month's summary">
+              <article class="summary-card balance-card">
+                <div class="card-topline"><span>MONTHLY SPENDING</span><span class="card-icon" aria-hidden="true">↗</span></div>
+                <p class="summary-value" id="monthly-spending">₱0.00</p>
+                <p class="summary-caption">Recorded expenses this month</p>
+                <div class="balance-decoration" aria-hidden="true"></div>
+              </article>
+              <article class="summary-card">
+                <div class="card-topline"><span>LEFT IN YOUR PLAN</span><span class="mini-icon mint" aria-hidden="true">✓</span></div>
+                <p class="summary-value" id="remaining-budget">₱0.00</p>
+                <p class="summary-caption">Across your monthly category limits</p>
+                <div class="summary-foot"><span class="foot-dot" aria-hidden="true"></span><span id="budget-footnote">Set a budget to get started</span></div>
+              </article>
+              <article class="summary-card">
+                <div class="card-topline"><span>TRANSACTIONS</span><span class="mini-icon peach" aria-hidden="true">↕</span></div>
+                <p class="summary-value" id="transaction-count">0</p>
+                <p class="summary-caption">Expenses logged this month</p>
+                <a class="text-link" href="#activity" data-view="activity">See all activity <span aria-hidden="true">→</span></a>
+              </article>
+            </div>
+
+            <div class="dashboard-grid">
+              <section class="panel spending-panel" aria-labelledby="spending-title">
+                <div class="panel-heading">
+                  <div><p class="eyebrow">THE BREAKDOWN</p><h2 id="spending-title">Spending by category</h2></div>
+                  <a class="text-link" href="#budgets" data-view="budgets">View budgets <span aria-hidden="true">→</span></a>
+                </div>
+                <div id="category-breakdown" class="category-breakdown"></div>
+              </section>
+
+              <section class="panel recent-panel" aria-labelledby="recent-title">
+                <div class="panel-heading">
+                  <div><p class="eyebrow">JUST THE LATEST</p><h2 id="recent-title">Recent activity</h2></div>
+                  <a class="text-link" href="#activity" data-view="activity">See all <span aria-hidden="true">→</span></a>
+                </div>
+                <div id="recent-transactions" class="recent-list"></div>
+              </section>
+            </div>
+
+            <aside class="gentle-prompt" aria-label="Spending reflection">
+              <span class="prompt-sparkle" aria-hidden="true">✳</span>
+              <div><p class="eyebrow">A GENTLE CHECK-IN</p><p>Small steps add up. Try logging one thing you spent today.</p></div>
+              <a class="text-link" href="#add-expense" data-view="add-expense">Log an expense <span aria-hidden="true">→</span></a>
+            </aside>
+          </section>
+
+          <section class="view" id="view-activity" data-page="activity" aria-labelledby="activity-title" hidden>
+            <div class="page-heading">
+              <div><p class="eyebrow">YOUR MONEY, IN MOTION</p><h1 id="activity-title" tabindex="-1">Activity</h1><p class="page-intro">Every expense you've chosen to keep track of.</p></div>
+              <a class="button button-primary" href="#add-expense" data-view="add-expense"><span aria-hidden="true">＋</span> Add expense</a>
+            </div>
+            <section class="panel activity-panel" aria-labelledby="all-transactions-title">
+              <div class="panel-heading activity-heading"><div><p class="eyebrow">TRANSACTION HISTORY</p><h2 id="all-transactions-title">Your expenses</h2></div><span id="activity-result-count" class="result-count" aria-live="polite"></span></div>
+              <div class="filter-row">
+                <label class="search-field"><span class="sr-only">Search by merchant</span><span aria-hidden="true">⌕</span><input id="transaction-search" type="search" placeholder="Search expenses"></label>
+                <label class="filter-select"><span class="sr-only">Filter by category</span><select id="category-filter"><option value="all">All categories</option></select></label>
+              </div>
+              <div class="table-scroll">
+                <table class="transaction-table">
+                  <caption class="sr-only">Expenses, newest first</caption>
+                  <thead><tr><th scope="col">MERCHANT</th><th scope="col">CATEGORY</th><th scope="col">DATE</th><th scope="col" class="amount-cell">AMOUNT</th></tr></thead>
+                  <tbody id="transaction-rows"></tbody>
+                </table>
+              </div>
+              <p id="empty-activity" class="empty-state" hidden>No expenses match that search. Try a different search, or <a href="#add-expense" data-view="add-expense">add your first expense</a>.</p>
+            </section>
+          </section>
+
+          <section class="view" id="view-add-expense" data-page="add-expense" aria-labelledby="add-expense-title" hidden>
+            <div class="page-heading">
+              <div><p class="eyebrow">A NOTE FOR FUTURE YOU</p><h1 id="add-expense-title" tabindex="-1">Log an expense</h1><p class="page-intro">Just the details you need. No bank connection required.</p></div>
+            </div>
+            <div class="form-layout">
+              <section class="panel form-panel" aria-labelledby="expense-form-heading">
+                <div class="panel-heading"><div><p class="eyebrow">NEW TRANSACTION</p><h2 id="expense-form-heading">What did you spend?</h2></div><span class="form-step">01 <span>— 03</span></span></div>
+                <form id="expense-form">
+                  <div class="form-grid">
+                    <div class="field field-wide">
+                      <label for="merchant">Merchant or description <span class="required-mark">Required</span></label>
+                      <input id="merchant" name="merchant" type="text" maxlength="60" placeholder="e.g. Weekend groceries" autocomplete="off" required>
+                      <span class="field-hint">A short name to help you recognize this expense.</span>
+                    </div>
+                    <div class="field">
+                      <label for="amount">Amount <span class="required-mark">Required</span></label>
+                      <div class="money-input"><span aria-hidden="true">₱</span><input id="amount" name="amount" type="number" inputmode="decimal" min="0.01" max="10000000" step="0.01" placeholder="0.00" required></div>
+                    </div>
+                    <div class="field">
+                      <label for="expense-date">Date <span class="required-mark">Required</span></label>
+                      <input id="expense-date" name="date" type="date" required>
+                    </div>
+                    <div class="field">
+                      <label for="expense-category">Category <span class="required-mark">Required</span></label>
+                      <select id="expense-category" name="category" required></select>
+                    </div>
+                    <div class="field">
+                      <label for="payment-method">Paid with</label>
+                      <select id="payment-method" name="paymentMethod">
+                        <option value="Cash">Cash</option><option value="Debit card">Debit card</option><option value="E-wallet">E-wallet</option><option value="Credit card">Credit card</option><option value="Other">Other</option>
+                      </select>
+                    </div>
+                    <div class="field field-wide check-field">
+                      <input id="recurring" name="recurring" type="checkbox">
+                      <label for="recurring">This is a recurring expense <span class="field-hint">A reminder for your own tracking; no payment will be scheduled.</span></label>
+                    </div>
+                  </div>
+                  <p id="form-feedback" class="form-feedback" role="status" aria-live="polite"></p>
+                  <div class="form-actions">
+                    <button class="button button-primary" type="submit">Save expense <span aria-hidden="true">→</span></button>
+                    <button class="button button-secondary" type="reset">Clear form</button>
+                  </div>
+                </form>
+              </section>
+              <aside class="form-aside">
+                <div class="aside-illustration" aria-hidden="true"><span>₱</span><i></i><b></b></div>
+                <p class="eyebrow">YOUR DATA, YOUR CALL</p>
+                <h2>Made for mindful tracking.</h2>
+                <p>This prototype saves the expenses you enter only in this browser. It doesn't connect to a bank or send your details anywhere.</p>
+                <a class="text-link" href="#help" data-view="help">Read about privacy <span aria-hidden="true">→</span></a>
+              </aside>
+            </div>
+          </section>
+
+          <section class="view" id="view-budgets" data-page="budgets" aria-labelledby="budgets-title" hidden>
+            <div class="page-heading">
+              <div><p class="eyebrow">A PLAN THAT FLEXES WITH YOU</p><h1 id="budgets-title" tabindex="-1">Your budgets</h1><p class="page-intro">Choose monthly guideposts that feel right for you.</p></div>
+              <a class="button button-primary" href="#add-expense" data-view="add-expense"><span aria-hidden="true">＋</span> Add expense</a>
+            </div>
+            <section class="budget-overview panel" aria-labelledby="budget-overview-title">
+              <div class="budget-total-icon" aria-hidden="true">◷</div>
+              <div><p class="eyebrow">ALL CATEGORY LIMITS</p><h2 id="budget-overview-title"><span id="total-budget">₱0.00</span> <span class="budget-subtitle">planned this month</span></h2><p id="budget-overview-caption" class="page-intro">Adjust a category anytime. Your plan is only a guide.</p></div>
+            </section>
+            <div class="budget-grid" id="budget-cards"></div>
+            <section class="panel budget-editor" aria-labelledby="budget-editor-title">
+              <div class="panel-heading"><div><p class="eyebrow">MAKE IT YOURS</p><h2 id="budget-editor-title">Adjust a monthly limit</h2></div></div>
+              <form id="budget-form" class="budget-form">
+                <div class="field"><label for="budget-category">Category</label><select id="budget-category" name="category" required></select></div>
+                <div class="field"><label for="budget-amount">Monthly limit <span class="required-mark">Required</span></label><div class="money-input"><span aria-hidden="true">₱</span><input id="budget-amount" name="budget" type="number" min="0" max="10000000" step="0.01" placeholder="0.00" required></div></div>
+                <button class="button button-primary" type="submit">Save limit <span aria-hidden="true">→</span></button>
+              </form>
+              <p id="budget-feedback" class="form-feedback" role="status" aria-live="polite"></p>
+            </section>
+          </section>
+
+          <section class="view" id="view-help" data-page="help" aria-labelledby="help-title" hidden>
+            <div class="page-heading">
+              <div><p class="eyebrow">HERE WHEN YOU NEED US</p><h1 id="help-title" tabindex="-1">Help & privacy</h1><p class="page-intro">A few clear answers about this little money tool.</p></div>
+            </div>
+            <div class="help-grid">
+              <section class="panel help-card"><span class="help-number">01</span><p class="eyebrow">GETTING STARTED</p><h2>How does Somera work?</h2><p>Add expenses by hand, choose a category, and set monthly limits to help you see your spending in one place. The totals and category breakdown update as you go.</p><a class="text-link" href="#add-expense" data-view="add-expense">Log an expense <span aria-hidden="true">→</span></a></section>
+              <section class="panel help-card"><span class="help-number">02</span><p class="eyebrow">YOUR PRIVACY</p><h2>Where does my data go?</h2><p>This demo stores entries in your browser's local storage. It doesn't connect to a bank, use an account login, or transmit your personal details to a server.</p><p class="privacy-note"><span aria-hidden="true">●</span> No bank connection. No account required.</p></section>
+              <section class="panel help-card"><span class="help-number">03</span><p class="eyebrow">YOUR CONTROL</p><h2>Can I clear my demo data?</h2><p>Yes. Clearing data removes your locally saved expenses and resets budget limits to the starting examples. This action can't be undone.</p><button class="button button-secondary" id="clear-data" type="button">Clear saved demo data</button><p id="clear-feedback" class="form-feedback" role="status" aria-live="polite"></p></section>
+              <section class="panel help-card"><span class="help-number">04</span><p class="eyebrow">A FRIENDLY REMINDER</p><h2>Is this financial advice?</h2><p>No. Somera is an educational prototype to help organize example expenses. It isn't a bank, financial adviser, or substitute for professional guidance.</p></section>
+            </div>
+          </section>
+        </div>
+        <footer class="footer"><span>Somera is a student prototype · Not a financial service</span><a href="#help" data-view="help">Privacy & help</a></footer>
+      </main>
+    </div>
+  </body>
+</html>
