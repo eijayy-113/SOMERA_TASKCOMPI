@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f1e7">
+    <meta name="description" content="Form & Field is a student marketplace concept for thoughtful objects for your desk.">
+    <title>Form &amp; Field — Little things for your desk</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body class="interior-page market-page">
+    <header class="site-header">
+      <a class="wordmark" href="index.html">fieldnotes<span>®</span></a>
+      <nav class="site-nav" aria-label="Main navigation"><a href="index.html#home">Home</a><a href="index.html#activities" aria-current="page">Activities</a><a href="index.html#about">About</a></nav>
+      <a class="header-link" href="#shop">The little shop <span aria-hidden="true">↘</span></a>
+    </header>
+    <main class="interior-main" id="shop">
+      <a class="back-link" href="index.html#activities"><span aria-hidden="true">←</span> Back to the activity shelf</a>
+      <div class="market-top"><div><p class="interior-kicker">ACTIVITY 02 · PRODUCT MARKETPLACE</p><a class="market-brand" href="market.html">form &amp; field</a></div><button class="cart-button" id="cart-toggle" type="button" aria-expanded="false" aria-controls="cart-drawer">Your bag <span id="cart-count" aria-live="polite">(0)</span></button></div>
+      <section class="market-intro" aria-labelledby="market-title">
+        <div><p class="interior-kicker">A LITTLE ROOM TO THINK</p><h1 id="market-title">Make space<br>for good ideas.</h1></div>
+        <p>Comfortable corners start with thoughtful objects. Meet the small-batch desk things that make everyday work feel a little more like your own.</p>
+      </section>
+      <section class="cart-drawer" id="cart-drawer" aria-labelledby="cart-title" hidden>
+        <h2 id="cart-title">Your little bag</h2>
+        <ul class="cart-items" id="cart-items"><li>Nothing here just yet.</li></ul>
+        <p id="cart-total" aria-live="polite">Demo total: ₱0</p>
+      </section>
+      <div class="market-toolbar"><h2>The desk edit</h2><p>THOUGHTFULLY PICKED · 03 OBJECTS</p></div>
+      <section class="product-grid" aria-label="Featured desk products">
+        <article class="product-card">
+          <div class="product-image"><img src="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&amp;fit=crop&amp;w=800&amp;q=85" alt="A warm sculptural desk lamp in a softly lit room" loading="lazy"><span class="product-label">MADE FOR LATE IDEAS</span></div>
+          <div class="product-info"><h3>Afterglow lamp</h3><strong>₱1,850</strong></div>
+          <p>A soft pool of light for the last page of the day.</p>
+          <button class="add-to-cart" type="button" data-name="Afterglow lamp" data-price="1850">Add to bag — ₱1,850</button>
+        </article>
+        <article class="product-card">
+          <div class="product-image"><img src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&amp;fit=crop&amp;w=800&amp;q=85" alt="A thoughtfully made paper notebook and stationery" loading="lazy"><span class="product-label">A PLACE FOR THOUGHTS</span></div>
+          <div class="product-info"><h3>Daybook, no. 02</h3><strong>₱680</strong></div>
+          <p>Good paper, a quiet cover, and a little room to wander.</p>
+          <button class="add-to-cart" type="button" data-name="Daybook, no. 02" data-price="680">Add to bag — ₱680</button>
+        </article>
+        <article class="product-card">
+          <div class="product-image"><img src="https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&amp;fit=crop&amp;w=800&amp;q=85" alt="A calm, plant-filled living space in warm afternoon light" loading="lazy"><span class="product-label">A BIT OF GREEN</span></div>
+          <div class="product-info"><h3>Sunday planter</h3><strong>₱920</strong></div>
+          <p>A happy little home for a plant that likes the sunshine.</p>
+          <button class="add-to-cart" type="button" data-name="Sunday planter" data-price="920">Add to bag — ₱920</button>
+        </article>
+      </section>
+      <p class="market-footnote">A classroom marketplace concept. Products, prices, and cart are examples only; no real checkout or purchases are available.</p>
+    </main>
+    <footer class="site-footer interior-footer"><a class="wordmark" href="index.html">fieldnotes<span>®</span></a><p>Made with care, curiosity &amp; HTML/CSS.</p><a href="index.html#activities">All activities ↑</a></footer>
+  </body>
+</html>

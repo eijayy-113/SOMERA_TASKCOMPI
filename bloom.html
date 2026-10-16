@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#eef1e8">
+    <meta name="description" content="Bloom is a responsive plant-care app concept for growing gentle daily routines.">
+    <title>Bloom — A slower kind of app</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body class="interior-page bloom-page">
+    <header class="site-header">
+      <a class="wordmark" href="index.html">fieldnotes<span>®</span></a>
+      <nav class="site-nav" aria-label="Main navigation"><a href="index.html#home">Home</a><a href="index.html#activities" aria-current="page">Activities</a><a href="index.html#about">About</a></nav>
+      <a class="header-link" href="#bloom-app">Open the app <span aria-hidden="true">↘</span></a>
+    </header>
+    <main class="bloom-wrap">
+      <div class="bloom-heading">
+        <a class="back-link" href="index.html#activities"><span aria-hidden="true">←</span> Back to the activity shelf</a>
+        <p class="interior-kicker">ACTIVITY 03 · RESPONSIVE MOBILE WEB APP</p>
+        <h1 class="interior-title">A slower kind of <span class="serif-accent">app.</span></h1>
+        <p class="interior-lede">A small plant-care companion for showing up gently, one glass of water and one sunny windowsill at a time.</p>
+      </div>
+      <section class="bloom-app" id="bloom-app" aria-label="Interactive Bloom plant care app demo">
+        <aside class="bloom-side">
+          <div class="bloom-logo">bloom.</div>
+          <p>YOUR LITTLE GREEN CORNER</p>
+          <nav class="bloom-nav" aria-label="Bloom app sections" role="tablist">
+            <button class="bloom-tab" type="button" role="tab" id="tab-today" aria-selected="true" aria-controls="bloom-panel" data-bloom-tab="today">☀ &nbsp; Today</button>
+            <button class="bloom-tab" type="button" role="tab" id="tab-plants" aria-selected="false" aria-controls="bloom-panel" data-bloom-tab="plants" tabindex="-1">❋ &nbsp; My plants</button>
+            <button class="bloom-tab" type="button" role="tab" id="tab-notes" aria-selected="false" aria-controls="bloom-panel" data-bloom-tab="notes" tabindex="-1">✎ &nbsp; Notes</button>
+          </nav>
+          <div class="bloom-side-note">Take it one leaf at a time. You and your plants are both growing.</div>
+        </aside>
+        <div class="bloom-content" id="bloom-panel" role="tabpanel" aria-labelledby="tab-today" tabindex="0">
+          <div class="bloom-topline"><span>THURSDAY, A NEW LITTLE DAY</span><span>MY WINDOWSILL · 3 PLANTS</span></div>
+          <div id="bloom-view">
+            <h2 class="bloom-welcome">Good morning, grower.</h2>
+            <p class="bloom-subtitle">A few gentle reminders for today.</p>
+            <div class="plant-highlight"><img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&amp;fit=crop&amp;w=500&amp;q=80" alt="Green leaves catching the sunlight"><div><p>YOUR SUNSHINE FRIEND</p><h3>Monstera</h3><span>Bright, indirect light · Water weekly</span></div></div>
+            <div class="care-list"><h3>A little care for today</h3><label class="care-task"><input type="checkbox"><span>Check if the Monstera's soil feels dry</span></label><label class="care-task"><input type="checkbox"><span>Turn the Pothos toward the window</span></label></div>
+          </div>
+        </div>
+      </section>
+      <p class="bloom-attribution">Try the tabs and check off a care task. This friendly demo saves no personal data and sends no reminders.</p>
+    </main>
+    <footer class="site-footer interior-footer bloom-wrap"><a class="wordmark" href="index.html">fieldnotes<span>®</span></a><p>Made with care, curiosity &amp; HTML/CSS.</p><a href="index.html#activities">All activities ↑</a></footer>
+  </body>
+</html>
